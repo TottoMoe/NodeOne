@@ -25,11 +25,19 @@ const fs = require("fs");
 const fileName = "target.txt";
 
 // fs.watch(fileName, () => console.log(`File changed!`));
+
+//*******Synchronous****** */
+// const data = fs.readFileSync(fileName);
+// console.log(data.toString());
+
+//*******Asynchronous**** */
+const errHandler = err => console.log(err);
+const dataHandler = data => console.log(data.toString());
+
 fs.readFile(fileName, (err, data) => {
-  if (err) {
-    console.log(err);
-  }
-  console.log(data.toString());
+  if (err) errHandler(err);
+  dataHandler(data);
 });
+
 
 console.log("Node js async programming...?");
