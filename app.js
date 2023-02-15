@@ -1,13 +1,22 @@
 // Import from another page
-const { sum, add } = require("./helper");
-const http = require('http')
+// const { sum, add } = require("./helper");
+
+//******HTTP server **********/
+// const http = require('http')
+
+// const server = http.createServer((req, res) => {
+//   res.end("hello world from node js undated")
+// });
+
+// server.listen(3000)
 
 
-const server = http.createServer((req, res) => {
-  res.end("hello world from node js undated")
-});
+//******Express server ********* */
+const express = require('express');
+const app = express()
 
-server.listen(3000)
+app.get('/', (req, res) => {
+  res.send("Hey whats up from express")
+})
 
-const total = sum(10,20);
-console.log(total)
+app.listen(3000)
